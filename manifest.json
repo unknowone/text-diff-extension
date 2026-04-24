@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "文本对比工具",
+  "short_name": "TextDiff",
+  "version": "1.0.0",
+  "description": "一款简洁强大的文本对比工具,以并排双栏方式清晰展示两段文本之间的差异。",
+  "default_locale": "zh_CN",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "打开文本对比",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["storage"]
+}

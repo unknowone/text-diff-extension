@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>文本对比工具</title>
+  <link rel="stylesheet" href="diff.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="app-title">
+      <span class="logo">⇌</span>
+      <h1>文本对比工具</h1>
+    </div>
+    <div class="toolbar">
+      <label class="toolbar-item">
+        对比粒度:
+        <select id="granularity">
+          <option value="lines">按行</option>
+          <option value="words" selected>按单词</option>
+          <option value="chars">按字符</option>
+        </select>
+      </label>
+      <label class="toolbar-item">
+        <input type="checkbox" id="ignoreCase" />
+        忽略大小写
+      </label>
+      <label class="toolbar-item">
+        <input type="checkbox" id="ignoreWhitespace" />
+        忽略空白
+      </label>
+      <button id="compareBtn" class="btn btn-primary">开始对比</button>
+      <button id="swapBtn" class="btn btn-ghost" title="交换左右内容">⇄ 交换</button>
+      <button id="clearBtn" class="btn btn-ghost">清空</button>
+    </div>
+  </header>
+
+  <main class="main-area" id="mainArea">
+    <section class="input-pane">
+      <div class="pane-header pane-header-left">
+        <span>原始文本(左)</span>
+        <span class="char-count" id="leftCount">0 字符</span>
+      </div>
+      <textarea
+        id="leftInput"
+        class="text-input"
+        placeholder="粘贴原始文本..."
+        spellcheck="false"
+      ></textarea>
+    </section>
+
+    <section class="input-pane">
+      <div class="pane-header pane-header-right">
+        <span>修改后文本(右)</span>
+        <span class="char-count" id="rightCount">0 字符</span>
+      </div>
+      <textarea
+        id="rightInput"
+        class="text-input"
+        placeholder="粘贴修改后的文本..."
+        spellcheck="false"
+      ></textarea>
+    </section>
+  </main>
+
+  <section class="result-area hidden" id="resultArea">
+    <div class="result-header">
+      <h2>对比结果</h2>
+      <div class="stats" id="stats"></div>
+      <button id="backBtn" class="btn btn-ghost">返回编辑</button>
+    </div>
+    <div class="diff-container">
+      <div class="diff-column">
+        <div class="diff-column-header">原始文本</div>
+        <pre class="diff-pane" id="leftDiff"></pre>
+      </div>
+      <div class="diff-column">
+        <div class="diff-column-header">修改后文本</div>
+        <pre class="diff-pane" id="rightDiff"></pre>
+      </div>
+    </div>
+  </section>
+
+  <footer class="app-footer">
+    <span>Text Diff · v1.0.0</span>
+  </footer>
+
+  <script src="../lib/diff.min.js"></script>
+  <script src="diff.js"></script>
+</body>
+</html>
